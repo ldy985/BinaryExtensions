@@ -1,0 +1,44 @@
+image: microsoft/dotnet:latest
+
+stages:
+- build
+- test
+- deploy
+
+build:
+  stage: build
+  script:
+    - dotnet restore
+    - dotnet build
+
+test:
+  stage: test
+  dependencies:
+    - build
+  script:
+    - dotnet test
+    
+    
+deploy:
+  stage: deploy
+  script:
+    - dotnet pack -c Release --include-symbols --include-source
+    - dotnet nuget push -k NUGET-SERVER-API-KEY -s http://192.168.2.149:5555/v3/index.json
+  environment:
+    name: production
+    url: https://example.com
+  when: manual
+  only:
+  - master
+ 
+#pack:
+#  stage: pack
+#  when: manual
+#  retry: 1
+#  artifacts:
+#    expire_in: 1 week
+#    paths:
+#    - Build/*.zip
+#  dependencies:
+#  - build-BitsJobsCollector
+#  script:
