@@ -75,3 +75,4 @@ DebugLog-*.txt
 Modules/Browsers/BrowsersProcessor/sqlite3\.dll
 Modules/Browsers/BrowsersProcessor/libsqlite3\.so
 *.db
+artifacts/
