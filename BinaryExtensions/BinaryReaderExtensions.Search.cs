@@ -13,9 +13,7 @@ namespace SDK.Extensions
         public static IEnumerable<long> IndexOfAny([NotNull]this BinaryReader reader, [NotNull]byte[] needle)
         {
             if (needle.Length == 0)
-            {
                 yield break;
-            }
 
             byte[] buffer = new byte[needle.Length];
 
@@ -28,9 +26,7 @@ namespace SDK.Extensions
                 //If we have a smaller buffer than the needle, we can only have a partial match. We need full matches
                 //This check also takes care of the end-of-stream case
                 if (read != needle.Length)
-                {
                     break;
-                }
 
                 if (ByteArrayMatch(buffer, needle))
                 {
@@ -56,9 +52,7 @@ namespace SDK.Extensions
             using (IEnumerator<long> e = IndexOfAny(reader, needle).GetEnumerator())
             {
                 if (e.MoveNext())
-                {
                     index = e.Current;
-                }
             }
 
             return index;
@@ -103,9 +97,7 @@ namespace SDK.Extensions
             using (IEnumerator<long> e = IndexOfAny(reader, needle).GetEnumerator())
             {
                 if (e.MoveNext())
-                {
                     index = e.Current;
-                }
             }
 
             return index;
@@ -123,9 +115,7 @@ namespace SDK.Extensions
             while ((readByte = reader.BaseStream.ReadByte()) != -1)
             {
                 if (readByte != needle)
-                {
                     yield return (byte)readByte;
-                }
                 else
                 {
                     SkipBackwards(reader, 1);

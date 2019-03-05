@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
 
@@ -41,7 +39,9 @@ namespace SDK.Extensions
 
             byte b;
             while ((b = br.ReadByte()) != 0)
+            {
                 bytes.Add(b);
+            }
 
             return Encoding.ASCII.GetString(bytes.ToArray());
         }
