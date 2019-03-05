@@ -9,11 +9,8 @@
 
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2018.2.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\NativeHelpers\NativeHelpers.csproj" />
-    <ProjectReference Include="..\NumberExtensions\NumberExtensions.csproj" />
+    <PackageReference Include="NativeHelpers" Version="0.1.0-alpha.2" />
+    <PackageReference Include="NumberExtensions" Version="0.1.0-alpha.20" />
   </ItemGroup>
 
 </Project>
