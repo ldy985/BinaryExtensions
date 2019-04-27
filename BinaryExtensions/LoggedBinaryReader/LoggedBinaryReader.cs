@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -294,6 +294,20 @@ namespace SDK.Extensions.LoggedBinaryReader
                 readCountMap.AddRegion(loggedBinaryReaderRegion);
 
             return readCountMap;
+        }
+
+        /// <summary>
+        ///     Gets the size that have been read.
+        /// </summary>
+        /// <param name="merge">
+        ///     Whether to merge overlapping regions.
+        /// </param>
+        /// <returns>
+        ///     The size read.
+        /// </returns>
+        public ulong GetReadSize(bool merge = true)
+        {
+            return (ulong)GetReadRegions(merge).Sum(region => region.Length);
         }
 
         private IEnumerable<LoggedBinaryReaderRegion> Merge([NotNull]IEnumerable<LoggedBinaryReaderRegion> regions)
