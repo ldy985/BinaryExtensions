@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using JetBrains.Annotations;
 using SDK.Helpers;
@@ -94,9 +95,9 @@ namespace SDK.Extensions
                 data.AddRange(reader.ReadBytes(int.MaxValue));
                 count -= int.MaxValue;
             }
+
             return data;
         }
-
 
         #endregion
 
@@ -111,6 +112,7 @@ namespace SDK.Extensions
         /// <returns>
         ///     The length of the underlying stream.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long GetLength([NotNull]this BinaryReader reader)
         {
             return reader.BaseStream.Length;
@@ -130,6 +132,7 @@ namespace SDK.Extensions
         ///     The stream does not support both writing and seeking, such as if the stream is
         ///     constructed from a pipe or console output.
         /// </exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetLength([NotNull]this BinaryReader reader, long length)
         {
             reader.BaseStream.SetLength(length);
@@ -171,6 +174,7 @@ namespace SDK.Extensions
         /// <returns>
         ///     The position of the underlying stream.
         /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long GetPosition([NotNull]this BinaryReader reader)
         {
             return reader.BaseStream.Position;
@@ -186,6 +190,7 @@ namespace SDK.Extensions
         ///     Position to set the underlying stream to.
         /// </param>
         /// <exception cref="IOException">An I/O error occurs.</exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetPosition([NotNull]this BinaryReader reader, long position)
         {
             reader.BaseStream.Position = position;
@@ -216,6 +221,7 @@ namespace SDK.Extensions
         ///     Number of bytes to roll.
         /// </param>
         /// <exception cref="IOException">An I/O error occurs.</exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SkipBackwards([NotNull]this BinaryReader reader, long count)
         {
             reader.BaseStream.Position -= count;
@@ -230,18 +236,15 @@ namespace SDK.Extensions
         public static bool TrySetPosition([NotNull]this BinaryReader reader, long pos)
         {
             if (pos < 0)
-            {
                 return false;
-            }
 
             long length = reader.GetLength();
-            if (length - pos >= 0 || reader.GetPosition() + pos <= length)
-            {
-                reader.SetPosition(pos);
-                return true;
-            }
 
-            return false;
+            if (length - pos < 0 && reader.GetPosition() + pos > length)
+                return false;
+
+            reader.SetPosition(pos);
+            return true;
         }
 
         #endregion
