@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
+    <!--<PackageReference Include="NativeHelpers" Version="0.1.0-alpha.8" />
+    <PackageReference Include="NumberExtensions" Version="0.1.0-alpha.27" />-->
+  </ItemGroup>
+
+</Project>

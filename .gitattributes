@@ -27,3 +27,7 @@
 *.jpg  	binary
 *.png 	binary
 *.gif 	binary
+
+*.req	text merge=text diff=text eol=lf
+*.creq	text merge=text diff=text eol=lf
+*.sts	text merge=text diff=text eol=lf

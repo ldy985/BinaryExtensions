@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryReaderExtensions", "BinaryReaderExtensions\BinaryReaderExtensions.csproj", "{C198161E-3C91-463B-AB91-0A4F8E5075F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryReaderExtensions.Tests", "BinaryReaderExtensions.Tests\BinaryReaderExtensions.Tests.csproj", "{E95CBC7C-A7D8-4396-9B70-ADB84AFEF6C2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryWriterExtensions.Tests", "BinaryWriterExtensions.Tests\BinaryWriterExtensions.Tests.csproj", "{A953AE66-85E2-4175-8F69-D61DFC1C997F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryWriterExtensions", "BinaryWriterExtensions\BinaryWriterExtensions.csproj", "{AEED2C27-D597-47AA-B653-BCDFFDA80275}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{CC009534-A5F0-4B45-80E7-6A561F908124}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumberExtensions", "..\..\NumberExtensions\src\NumberExtensions\NumberExtensions.csproj", "{01F07CF8-D63E-4892-A88D-1177BF06C5C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C5A28F8-327D-48A0-9EC7-D97A932D6EAF}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		..\.editorconfig = ..\.editorconfig
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+		..\.gitlab-ci.yml = ..\.gitlab-ci.yml
+		..\.gitmodules = ..\.gitmodules
+		..\.nuke = ..\.nuke
+		..\build.ps1 = ..\build.ps1
+		..\build.sh = ..\build.sh
+		..\Directory.Build.props = ..\Directory.Build.props
+		..\GitVersion.yml = ..\GitVersion.yml
+		..\Global.ruleset = ..\Global.ruleset
+		..\LICENSE.txt = ..\LICENSE.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C198161E-3C91-463B-AB91-0A4F8E5075F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C198161E-3C91-463B-AB91-0A4F8E5075F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C198161E-3C91-463B-AB91-0A4F8E5075F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C198161E-3C91-463B-AB91-0A4F8E5075F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E95CBC7C-A7D8-4396-9B70-ADB84AFEF6C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E95CBC7C-A7D8-4396-9B70-ADB84AFEF6C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E95CBC7C-A7D8-4396-9B70-ADB84AFEF6C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E95CBC7C-A7D8-4396-9B70-ADB84AFEF6C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A953AE66-85E2-4175-8F69-D61DFC1C997F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A953AE66-85E2-4175-8F69-D61DFC1C997F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A953AE66-85E2-4175-8F69-D61DFC1C997F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A953AE66-85E2-4175-8F69-D61DFC1C997F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEED2C27-D597-47AA-B653-BCDFFDA80275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEED2C27-D597-47AA-B653-BCDFFDA80275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEED2C27-D597-47AA-B653-BCDFFDA80275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEED2C27-D597-47AA-B653-BCDFFDA80275}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01F07CF8-D63E-4892-A88D-1177BF06C5C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01F07CF8-D63E-4892-A88D-1177BF06C5C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01F07CF8-D63E-4892-A88D-1177BF06C5C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01F07CF8-D63E-4892-A88D-1177BF06C5C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{01F07CF8-D63E-4892-A88D-1177BF06C5C5} = {CC009534-A5F0-4B45-80E7-6A561F908124}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E8CF00E-438E-4A19-88BF-861CE96DF253}
+	EndGlobalSection
+EndGlobal

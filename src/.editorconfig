@@ -1,0 +1,4 @@
+﻿O:\BitSync\Programering\C#\!UtillityClasses\BinaryExtensions\src\.editorconfig[*.cs]
+
+# CA1062: Validate arguments of public methods
+dotnet_diagnostic.CA1062.severity = none
