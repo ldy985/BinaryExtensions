@@ -6,7 +6,7 @@ variables:
 cache:
   key: "$CI_PROJECT_NAMESPACE-$CI_PROJECT_NAME"
   paths:
-    - .nuget/
+    - ./root/.nuget
 
 stages:
 - build
@@ -21,7 +21,7 @@ build:
       - "*/bin"
       - "*/obj"
   script:
-    - bash ./build.sh build --for-prod
+    - bash ./build.sh build
 
 test:
   stage: test
@@ -39,6 +39,6 @@ deploy:
     paths:
       - artifacts
   script:
-    - bash ./build.sh restore+pack+push --for-prod --path $FEED_URL --api-key $FEED_KEY
+    - bash ./build.sh pack+push --path $FEED_URL --api-key $FEED_KEY
   when: manual
 
