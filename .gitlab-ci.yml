@@ -18,17 +18,17 @@ build:
   artifacts:
     expire_in: 12 hours
     paths:
-      - "*/bin"
-      - "*/obj"
+      - "src/*/bin"
+      - "src/*/obj"
   script:
-    - bash ./build.sh build
+    - bash ./build.sh build --for-prod
 
 test:
   stage: test
   dependencies:
     - build
   script:
-    - bash ./build.sh test
+    - bash ./build.sh test --for-prod
      
 deploy:
   stage: deploy
@@ -39,6 +39,6 @@ deploy:
     paths:
       - artifacts
   script:
-    - bash ./build.sh pack+push --path $FEED_URL --api-key $FEED_KEY
+    - bash ./build.sh pack+push --path $FEED_URL --api-key $FEED_KEY --for-prod
   when: manual
 
