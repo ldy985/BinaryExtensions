@@ -11,10 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryWriterExtensions.Test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryWriterExtensions", "BinaryWriterExtensions\BinaryWriterExtensions.csproj", "{AEED2C27-D597-47AA-B653-BCDFFDA80275}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{CC009534-A5F0-4B45-80E7-6A561F908124}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumberExtensions", "..\..\NumberExtensions\src\NumberExtensions\NumberExtensions.csproj", "{01F07CF8-D63E-4892-A88D-1177BF06C5C5}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C5A28F8-327D-48A0-9EC7-D97A932D6EAF}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
@@ -54,16 +50,9 @@ Global
 		{AEED2C27-D597-47AA-B653-BCDFFDA80275}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEED2C27-D597-47AA-B653-BCDFFDA80275}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEED2C27-D597-47AA-B653-BCDFFDA80275}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01F07CF8-D63E-4892-A88D-1177BF06C5C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01F07CF8-D63E-4892-A88D-1177BF06C5C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01F07CF8-D63E-4892-A88D-1177BF06C5C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01F07CF8-D63E-4892-A88D-1177BF06C5C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{01F07CF8-D63E-4892-A88D-1177BF06C5C5} = {CC009534-A5F0-4B45-80E7-6A561F908124}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7E8CF00E-438E-4A19-88BF-861CE96DF253}
