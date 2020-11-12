@@ -39,6 +39,6 @@ deploy:
     paths:
       - artifacts
   script:
-    - bash ./build.sh pack+push --for-prod --path $FEED_URL --api-key $FEED_KEY
+    - bash ./build.sh restore+pack+push --for-prod --path $FEED_URL --api-key $FEED_KEY
   when: manual
 
