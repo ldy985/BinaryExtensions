@@ -21,7 +21,7 @@ build:
       - "*/bin"
       - "*/obj"
   script:
-    - bash ./build.sh build
+    - bash ./build.sh build+pack+push --path $FEED_URL --api-key $FEED_KEY
 
 test:
   stage: test
