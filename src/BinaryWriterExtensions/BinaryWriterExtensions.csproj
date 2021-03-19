@@ -4,9 +4,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
-    <!--<PackageReference Include="NativeHelpers" Version="0.1.0-alpha.8" />
-    <PackageReference Include="NumberExtensions" Version="0.1.0-alpha.27" />-->
+    <PackageReference Include="JetBrains.Annotations" Version="2020.3.0" />
   </ItemGroup>
 
 </Project>
