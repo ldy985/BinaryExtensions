@@ -70,10 +70,6 @@ namespace ldy985.BinaryReaderExtensions.Tests
             byte[] bytes = { 0x86, 0x00, 0x74, 0x00, 0x1E, 0x00, 0x43, 0x46 };
             Assert.Equal(data, bytes);
             Assert.Equal(0, TestFileReader1.GetPosition());
-
-            TestFileReader1.SetPosition(TestFileReader1.GetLength());
-
-            TestFileReader1.Peek(reader => reader.ReadByte());
         }
     }
 }

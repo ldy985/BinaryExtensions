@@ -1,6 +1,7 @@
 using System;
 using System.Buffers;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using JetBrains.Annotations;
 
@@ -23,16 +24,8 @@ namespace ldy985.BinaryReaderExtensions
         public static T ReadStruct<T>([NotNull]this BinaryReader reader) where T : struct
         {
             int size = Marshal.SizeOf<T>();
-
             byte[] data = reader.ReadBytes(size);
-            Memory<byte> memory = data.AsMemory();
-            using (MemoryHandle unmanagedMemory = memory.Pin())
-            {
-                unsafe
-                {
-                    return Marshal.PtrToStructure<T>(new IntPtr(unmanagedMemory.Pointer));
-                }
-            }
+            return Unsafe.ReadUnaligned<T>(ref data[0]);
         }
     }
 }
