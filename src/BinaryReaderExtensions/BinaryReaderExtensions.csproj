@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2020.3.0" />
-    <PackageReference Include="ldy985.NumberExtensions" Version="0.1.0-alpha-gd2be839853" />
+    <PackageReference Include="ldy985.NumberExtensions" Version="0.1.0-alpha-gfab999f2dd" />
   </ItemGroup>
 
 
