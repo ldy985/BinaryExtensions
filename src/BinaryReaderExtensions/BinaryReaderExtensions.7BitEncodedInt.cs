@@ -1,6 +1,6 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using JetBrains.Annotations;
 
 namespace ldy985.BinaryReaderExtensions
 {
@@ -9,6 +9,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <summary>Reads 7-bit encoded int.</summary>
         /// <exception cref="FormatException">Format_Bad7BitInt32</exception>
         /// <exception cref="EndOfStreamException">The end of the stream is reached.</exception>
+        [MustUseReturnValue]
         public static int Read7BitEncodedInt(this BinaryReader br)
         {
             // Read out an Int32 7 bits at a time.  The high bit

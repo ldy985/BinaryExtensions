@@ -1,10 +1,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using System.Text;
 using ldy985.BinaryReaderExtensions.LoggedReader;
-using ldy985.NumberExtensions;
-using Xunit;
 
 namespace ldy985.BinaryReaderExtensions.Tests
 {

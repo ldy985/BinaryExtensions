@@ -17,7 +17,7 @@
 
     <ItemGroup>
         <PackageReference Include="JetBrains.Annotations" Version="*" PrivateAssets="all" />
-        <PackageReference Include="ldy985.NumberExtensions" Version="0.1.0-alpha-gfab999f2dd" />
+        <PackageReference Include="ldy985.NumberExtensions" Version="0.1.0" />
     </ItemGroup>
 
 

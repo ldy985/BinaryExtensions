@@ -87,6 +87,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <summary>Gets the length of the underlying stream.</summary>
         /// <param name="reader">The <see cref="BinaryReader" /> to read from.</param>
         /// <returns>The length of the underlying stream.</returns>
+        [Pure]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long GetLength(this BinaryReader reader)
         {

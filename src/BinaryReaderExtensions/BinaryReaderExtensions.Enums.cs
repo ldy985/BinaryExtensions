@@ -12,6 +12,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <exception cref="NotSupportedException"></exception>
         /// <exception cref="EndOfStreamException">The end of the stream is reached.</exception>
         /// <exception cref="IOException">An I/O error occurs.</exception>
+        [MustUseReturnValue]
         public static T ReadEnum<T>(this BinaryReader br, bool failOnInvalidValue = false) where T : struct, Enum
         {
             Type type = typeof(T);
