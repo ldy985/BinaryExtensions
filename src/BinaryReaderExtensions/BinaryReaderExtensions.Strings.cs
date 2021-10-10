@@ -14,22 +14,13 @@ namespace ldy985.BinaryReaderExtensions
         /// <returns>The string.</returns>
         /// <exception cref="System.ObjectDisposedException"></exception>
         /// <exception cref="IOException"></exception>
-        [NotNull]
-#if NETSTANDARD2_1
-        public static string ReadFixedString([NotNull]this BinaryReader br, int length, [NotNull]Encoding encoding)
+        [MustUseReturnValue]
+        public static string ReadFixedString(this BinaryReader br, int length, Encoding encoding)
         {
             Span<byte> bytes = stackalloc byte[length];
             br.Read(bytes);
 
             return encoding.GetString(bytes);
         }
-#else
-        public static string ReadFixedString([NotNull]this BinaryReader br, int length, [NotNull]Encoding encoding)
-        {
-            byte[] bytes = new byte[length];
-            br.Read(bytes, 0, length);
-            return encoding.GetString(bytes);
-        }
-#endif
     }
 }

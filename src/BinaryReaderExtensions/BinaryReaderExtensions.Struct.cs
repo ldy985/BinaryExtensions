@@ -21,7 +21,8 @@ namespace ldy985.BinaryReaderExtensions
         /// </remarks>
         /// <exception cref="IOException"></exception>
         /// <exception cref="ObjectDisposedException"></exception>
-        public static T ReadStruct<T>([NotNull]this BinaryReader reader) where T : struct
+        [MustUseReturnValue]
+        public static T ReadStruct<T>(this BinaryReader reader) where T : struct
         {
             int size = Marshal.SizeOf<T>();
             byte[] data = reader.ReadBytes(size);

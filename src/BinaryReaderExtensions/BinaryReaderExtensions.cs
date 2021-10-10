@@ -20,7 +20,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <remarks>This method will save underlying stream position and restore it after reading the object.</remarks>
         /// <exception cref="IOException">An I/O error occurs.</exception>
         [Pure]
-        public static T Peek<T>([NotNull]this BinaryReader reader, [NotNull]Func<BinaryReader, T> func)
+        public static T Peek<T>(this BinaryReader reader, Func<BinaryReader, T> func)
         {
             long position = reader.GetPosition();
             T value = func(reader);
@@ -36,7 +36,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <exception cref="IOException"></exception>
         /// <exception cref="ObjectDisposedException"></exception>
         [Pure]
-        public static byte[] PeekData([NotNull]this BinaryReader reader, int count)
+        public static byte[] PeekData(this BinaryReader reader, int count)
         {
             byte[] data = reader.ReadBytes(count);
             reader.SkipBackwards(count);
@@ -49,7 +49,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <param name="count"></param>
         /// <exception cref="IOException"></exception>
         /// <exception cref="ObjectDisposedException"></exception>
-        public static List<byte> ReadBytes([NotNull]this BinaryReader reader, uint count)
+        public static List<byte> ReadBytes(this BinaryReader reader, uint count)
         {
             List<byte> data = new List<byte>();
             while (count > int.MaxValue)
@@ -61,6 +61,25 @@ namespace ldy985.BinaryReaderExtensions
             return data;
         }
 
+        public static int ReadBytes(this BinaryReader reader, Span<byte> buffer)
+        {
+            int numRead = 0;
+            int count = buffer.Length;
+            do
+            {
+                int n = reader.BaseStream.Read(buffer.Slice(numRead, count));
+                if (n == 0)
+                {
+                    break;
+                }
+
+                numRead += n;
+                count -= n;
+            } while (count > 0);
+
+            return numRead;
+        }
+
         #endregion Objects
 
         #region Length
@@ -69,7 +88,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <param name="reader">The <see cref="BinaryReader" /> to read from.</param>
         /// <returns>The length of the underlying stream.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static long GetLength([NotNull]this BinaryReader reader)
+        public static long GetLength(this BinaryReader reader)
         {
             return reader.BaseStream.Length;
         }
@@ -84,7 +103,7 @@ namespace ldy985.BinaryReaderExtensions
         /// </exception>
         /// <exception cref="ObjectDisposedException"></exception>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetLength([NotNull]this BinaryReader reader, long length)
+        public static void SetLength(this BinaryReader reader, long length)
         {
             reader.BaseStream.SetLength(length);
         }
@@ -98,7 +117,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <param name="alignment">Number of bytes to align by.</param>
         /// <remarks>The underlying stream position is aligned forward even if already aligned.</remarks>
         /// <exception cref="IOException">An I/O error occurs.</exception>
-        public static long Align([NotNull]this BinaryReader reader, int alignment)
+        public static long Align(this BinaryReader reader, int alignment)
         {
             long position = reader.GetPosition();
             long remainder = position % alignment;
@@ -113,7 +132,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <returns>The position of the underlying stream.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         [Pure]
-        public static long GetPosition([NotNull]this BinaryReader reader)
+        public static long GetPosition(this BinaryReader reader)
         {
             return reader.BaseStream.Position;
         }
@@ -123,7 +142,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <param name="position">Position to set the underlying stream to.</param>
         /// <exception cref="IOException">An I/O error occurs.</exception>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetPosition([NotNull]this BinaryReader reader, long position)
+        public static void SetPosition(this BinaryReader reader, long position)
         {
             reader.BaseStream.Position = position;
         }
@@ -134,7 +153,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <exception cref="IOException">An I/O error occurs.</exception>
         /// <exception cref="ObjectDisposedException"></exception>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SkipBackwards([NotNull]this BinaryReader reader, long count)
+        public static void SkipBackwards(this BinaryReader reader, long count)
         {
             reader.BaseStream.Position -= count;
         }
@@ -145,7 +164,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <exception cref="IOException">An I/O error occurs.</exception>
         /// <exception cref="ObjectDisposedException"></exception>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SkipForwards([NotNull]this BinaryReader reader, long count)
+        public static void SkipForwards(this BinaryReader reader, long count)
         {
             reader.BaseStream.Position += count;
         }
@@ -155,7 +174,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <param name="pos"></param>
         /// <returns></returns>
         /// <exception cref="IOException"></exception>
-        public static bool TrySetPosition([NotNull]this BinaryReader reader, long pos)
+        public static bool TrySetPosition(this BinaryReader reader, long pos)
         {
             if (pos < 0)
                 return false;

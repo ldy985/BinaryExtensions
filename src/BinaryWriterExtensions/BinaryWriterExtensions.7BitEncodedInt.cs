@@ -5,7 +5,7 @@ namespace ldy985.BinaryWriterExtensions
 {
     public static partial class BinaryWriterExtensions
     {
-        public static void Write7BitEncodedInt([NotNull]this BinaryWriter bw, int value)
+        public static void Write7BitEncodedInt(this BinaryWriter bw, int value)
         {
             // Write out an int 7 bits at a time.  The high bit of the byte,
             // when on, tells reader to continue reading more bytes.

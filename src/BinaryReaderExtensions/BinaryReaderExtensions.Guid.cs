@@ -11,7 +11,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <returns>The read GUID</returns>
         /// <exception cref="IOException">An I/O error occurs.</exception>
         /// <exception cref="ObjectDisposedException"></exception>
-        public static Guid ReadGuid([NotNull]this BinaryReader reader)
+        public static Guid ReadGuid(this BinaryReader reader)
         {
             return new Guid(reader.ReadBytes(16));
         }

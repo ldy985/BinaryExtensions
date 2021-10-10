@@ -9,7 +9,7 @@ namespace ldy985.BinaryReaderExtensions.LoggedReader
 {
     internal sealed class LoggedBinaryReaderJournal : IList<LoggedBinaryReaderRegion>
     {
-        internal LoggedBinaryReaderJournal([NotNull]LoggedBinaryReader reader)
+        internal LoggedBinaryReaderJournal(LoggedBinaryReader reader)
         {
             Reader = reader;
             Regions = new List<LoggedBinaryReaderRegion>();

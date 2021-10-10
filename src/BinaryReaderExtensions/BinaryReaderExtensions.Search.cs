@@ -10,7 +10,8 @@ namespace ldy985.BinaryReaderExtensions
         /// <summary>Finds the first index of the specified needle. Returns -1 if not found.</summary>
         /// <exception cref="IOException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static long IndexOf([NotNull]this BinaryReader reader, [NotNull]byte[] needle)
+        [MustUseReturnValue]
+        public static long IndexOf(this BinaryReader reader, byte[] needle)
         {
             long index = -1;
 
@@ -26,7 +27,8 @@ namespace ldy985.BinaryReaderExtensions
         /// <summary>Finds the first index of the specified needle. Returns -1 if not found.</summary>
         /// <exception cref="IOException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public static long IndexOf([NotNull]this BinaryReader reader, byte needle)
+        [MustUseReturnValue]
+        public static long IndexOf(this BinaryReader reader, byte needle)
         {
             long index = -1;
 
@@ -42,7 +44,8 @@ namespace ldy985.BinaryReaderExtensions
         /// <summary>Finds all indexes of the specified needle. It returns nothing if there is no match.</summary>
         /// <exception cref="IOException">An I/O error occurs.</exception>
         /// <exception cref="ObjectDisposedException"></exception>
-        public static IEnumerable<long> IndexOfAny([NotNull]this BinaryReader reader, [NotNull]byte[] needle)
+        [MustUseReturnValue]
+        public static IEnumerable<long> IndexOfAny(this BinaryReader reader, byte[] needle)
         {
             if (needle.Length == 0)
                 yield break;
@@ -77,7 +80,8 @@ namespace ldy985.BinaryReaderExtensions
         /// <summary>Finds all indexes of the specified needle. It returns nothing if there is no match.</summary>
         /// <exception cref="IOException">An I/O error occurs.</exception>
         /// <exception cref="ObjectDisposedException"></exception>
-        public static IEnumerable<long> IndexOfAny([NotNull]this BinaryReader reader, byte needle)
+        [MustUseReturnValue]
+        public static IEnumerable<long> IndexOfAny(this BinaryReader reader, byte needle)
         {
             //We don't use the BinaryReader.ReadByte() since it will throw an exception at the end of stream.
             //We use Stream.ReadByte() instead, which returns an integer of -1 when end of stream is reached.
@@ -105,7 +109,8 @@ namespace ldy985.BinaryReaderExtensions
         /// <summary>Read from the reader until it reaches the specified byte</summary>
         /// <exception cref="IOException">An I/O error occurs.</exception>
         /// <exception cref="ObjectDisposedException"></exception>
-        public static IEnumerable<byte> ReadUntil([NotNull]this BinaryReader reader, byte needle)
+        [MustUseReturnValue]
+        public static IEnumerable<byte> ReadUntil(this BinaryReader reader, byte needle)
         {
             //We don't use the BinaryReader.ReadByte() since it will throw an exception at the end of stream.
             //We use Stream.ReadByte() instead, which returns an integer of -1 when end of stream is reached.
@@ -122,6 +127,7 @@ namespace ldy985.BinaryReaderExtensions
             }
         }
 
+        [MustUseReturnValue]
         public static unsafe bool SequenceEqual_I(byte[] array1, byte[] array2)
         {
             if (array1.Length != array2.Length)

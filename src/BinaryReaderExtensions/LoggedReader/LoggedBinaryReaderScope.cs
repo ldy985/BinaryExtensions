@@ -10,7 +10,7 @@ namespace ldy985.BinaryReaderExtensions.LoggedReader
         /// </summary>
         /// <param name="journal"></param>
         /// <exception cref="InvalidOperationException"></exception>
-        internal LoggedBinaryReaderScope([NotNull]LoggedBinaryReaderJournal journal)
+        internal LoggedBinaryReaderScope(LoggedBinaryReaderJournal journal)
         {
             Journal = journal;
             Journal.BeginLog();

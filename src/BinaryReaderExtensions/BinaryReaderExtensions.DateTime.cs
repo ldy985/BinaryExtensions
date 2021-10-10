@@ -12,7 +12,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <exception cref="EndOfStreamException"></exception>
         /// <exception cref="ObjectDisposedException"></exception>
         /// <exception cref="IOException"></exception>
-        public static DateTime ReadFileDateTime([NotNull]this BinaryReader br)
+        public static DateTime ReadFileDateTime(this BinaryReader br)
         {
             long value = br.ReadInt64();
             return DateTime.FromFileTimeUtc(value);
@@ -24,7 +24,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <exception cref="EndOfStreamException"></exception>
         /// <exception cref="ObjectDisposedException"></exception>
         /// <exception cref="IOException"></exception>
-        public static DateTime ReadMRUDateTime([NotNull]this BinaryReader br)
+        public static DateTime ReadMRUDateTime(this BinaryReader br)
         {
             uint rawDate = br.ReadUInt32();
 
@@ -63,7 +63,7 @@ namespace ldy985.BinaryReaderExtensions
         /// <exception cref="EndOfStreamException"></exception>
         /// <exception cref="ObjectDisposedException"></exception>
         /// <exception cref="IOException"></exception>
-        public static DateTime ReadUnixDatetime([NotNull]this BinaryReader br)
+        public static DateTime ReadUnixDatetime(this BinaryReader br)
         {
             long value = br.ReadInt64();
             return DateTimeOffset.FromUnixTimeSeconds(value).UtcDateTime;

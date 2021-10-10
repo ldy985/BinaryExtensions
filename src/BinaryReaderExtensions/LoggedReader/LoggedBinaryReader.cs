@@ -299,7 +299,7 @@ namespace ldy985.BinaryReaderExtensions.LoggedReader
         /// <param name="regions"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        private IEnumerable<LoggedBinaryReaderRegion> Merge([NotNull] IEnumerable<LoggedBinaryReaderRegion> regions)
+        private IEnumerable<LoggedBinaryReaderRegion> Merge(IEnumerable<LoggedBinaryReaderRegion> regions)
         {
             using (IEnumerator<LoggedBinaryReaderRegion> e = regions.GetEnumerator())
             {

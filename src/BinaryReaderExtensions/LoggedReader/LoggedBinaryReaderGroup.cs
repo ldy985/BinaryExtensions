@@ -10,7 +10,7 @@ namespace ldy985.BinaryReaderExtensions.LoggedReader
         /// </summary>
         /// <param name="reader"></param>
         /// <exception cref="InvalidOperationException"></exception>
-        public LoggedBinaryReaderGroup([NotNull]LoggedBinaryReader reader)
+        public LoggedBinaryReaderGroup(LoggedBinaryReader reader)
         {
             Reader = reader;
             reader.BeginGroupInternal();
