@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using JetBrains.Annotations;
 
 namespace ldy985.BinaryReaderExtensions
@@ -56,6 +57,7 @@ namespace ldy985.BinaryReaderExtensions
 
             int i = 0;
             int read;
+
             while ((read = reader.Read(buffer, 0, needle.Length)) > 0)
             {
                 //If we have a smaller buffer than the needle, we can only have a partial match. We need full matches
@@ -63,7 +65,7 @@ namespace ldy985.BinaryReaderExtensions
                 if (read != needle.Length)
                     break;
 
-                if (SequenceEqual_I(buffer, needle))
+                if (buffer.SequenceEqual(needle))
                 {
                     reader.SetPosition(startPosition);
                     yield return startPosition + i;
@@ -90,6 +92,7 @@ namespace ldy985.BinaryReaderExtensions
 
             int i = 0;
             int readByte;
+
             while ((readByte = reader.BaseStream.ReadByte()) != -1)
             {
                 i++;
@@ -115,6 +118,7 @@ namespace ldy985.BinaryReaderExtensions
             //We don't use the BinaryReader.ReadByte() since it will throw an exception at the end of stream.
             //We use Stream.ReadByte() instead, which returns an integer of -1 when end of stream is reached.
             int readByte;
+
             while ((readByte = reader.BaseStream.ReadByte()) != -1)
             {
                 if (readByte != needle)
@@ -125,29 +129,6 @@ namespace ldy985.BinaryReaderExtensions
                     yield break;
                 }
             }
-        }
-
-        [MustUseReturnValue]
-        public static unsafe bool SequenceEqual_I(byte[] array1, byte[] array2)
-        {
-            if (array1.Length != array2.Length)
-                return false;
-
-            fixed (byte* ptr1 = &array1[0])
-            fixed (byte* ptr2 = &array2[0])
-            {
-                int i = 0;
-                int length = array1.Length;
-                while (i < length)
-                {
-                    if (*(ptr1 + i) == *(ptr2 + i))
-                        return true;
-
-                    i++;
-                }
-            }
-
-            return false;
         }
     }
 }

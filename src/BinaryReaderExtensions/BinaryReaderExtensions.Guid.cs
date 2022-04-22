@@ -14,7 +14,9 @@ namespace ldy985.BinaryReaderExtensions
         [MustUseReturnValue]
         public static Guid ReadGuid(this BinaryReader reader)
         {
-            return new Guid(reader.ReadBytes(16));
+            Span<byte> buffer = stackalloc byte[16];
+            reader.ReadBytes(buffer);
+            return new Guid(buffer);
         }
     }
 }
