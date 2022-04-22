@@ -13,17 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryWriterExtensions", "B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C5A28F8-327D-48A0-9EC7-D97A932D6EAF}"
 	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-		..\.editorconfig = ..\.editorconfig
 		..\.gitattributes = ..\.gitattributes
 		..\.gitignore = ..\.gitignore
-		..\.gitlab-ci.yml = ..\.gitlab-ci.yml
-		..\.gitmodules = ..\.gitmodules
-		..\.nuke = ..\.nuke
-		..\build.ps1 = ..\build.ps1
-		..\build.sh = ..\build.sh
 		..\Directory.Build.props = ..\Directory.Build.props
-		..\GitVersion.yml = ..\GitVersion.yml
 		..\Global.ruleset = ..\Global.ruleset
 		..\LICENSE.txt = ..\LICENSE.txt
 	EndProjectSection
