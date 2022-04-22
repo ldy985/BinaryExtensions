@@ -8,7 +8,6 @@ using JetBrains.Annotations;
 namespace ldy985.BinaryReaderExtensions.LoggedReader
 {
     [PublicAPI]
-
     /// <summary>
     ///     A <see cref="T:System.IO.BinaryReader" /> that logs the regions it reads.
     /// </summary>

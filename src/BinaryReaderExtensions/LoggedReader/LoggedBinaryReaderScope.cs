@@ -2,7 +2,7 @@
 
 namespace ldy985.BinaryReaderExtensions.LoggedReader
 {
-    internal readonly struct LoggedBinaryReaderScope : IDisposable
+    internal readonly record struct LoggedBinaryReaderScope : IDisposable
     {
         /// <summary>
         /// ctor

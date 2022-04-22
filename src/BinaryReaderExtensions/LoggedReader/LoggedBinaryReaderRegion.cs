@@ -3,28 +3,8 @@
 namespace ldy985.BinaryReaderExtensions.LoggedReader
 {
     /// <summary>Defines a <see cref="LoggedBinaryReader" /> region.</summary>
-    public readonly struct LoggedBinaryReaderRegion
+    public readonly record struct LoggedBinaryReaderRegion
     {
-        public bool Equals(LoggedBinaryReaderRegion other)
-        {
-            return Length == other.Length && Position == other.Position;
-        }
-
-        /// <inheritdoc />
-        public override bool Equals(object obj)
-        {
-            return obj is LoggedBinaryReaderRegion other && Equals(other);
-        }
-
-        /// <inheritdoc />
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (Length.GetHashCode() * 397) ^ Position.GetHashCode();
-            }
-        }
-
         /// <summary>Initializes a new instance of <see cref="LoggedBinaryReaderRegion" />.</summary>
         /// <param name="position">The position of the region.</param>
         /// <param name="length">The length for the region.</param>

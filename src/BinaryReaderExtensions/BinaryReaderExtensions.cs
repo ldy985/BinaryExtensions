@@ -69,9 +69,7 @@ namespace ldy985.BinaryReaderExtensions
             {
                 int n = reader.BaseStream.Read(buffer.Slice(numRead, count));
                 if (n == 0)
-                {
                     break;
-                }
 
                 numRead += n;
                 count -= n;
