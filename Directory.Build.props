@@ -24,7 +24,7 @@
         <RepositoryType>Git</RepositoryType>
         <RootNamespace>ldy985.$(MSBuildProjectName)</RootNamespace>
         <AssemblyName>ldy985.$(MSBuildProjectName)</AssemblyName>
-        <PackageProjectUrl>https://github.com/ldy985/$(MSBuildProjectName)</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/ldy985/BinaryExtensions</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
         <!--SourceLink stuff-->
