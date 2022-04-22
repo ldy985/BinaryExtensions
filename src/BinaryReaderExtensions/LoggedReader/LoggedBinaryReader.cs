@@ -20,7 +20,7 @@ namespace ldy985.BinaryReaderExtensions.LoggedReader
         /// <code>true</code> to leave the stream open after the <see cref="System.IO.BinaryReader" />
         /// object is disposed; otherwise, <code>false</code>.
         /// </param>
-        public LoggedBinaryReader(Stream stream, Encoding encoding = null, bool leaveOpen = true) : base(stream, encoding ?? Encoding.Default, leaveOpen)
+        public LoggedBinaryReader(Stream stream, Encoding? encoding = null, bool leaveOpen = true) : base(stream, encoding ?? Encoding.Default, leaveOpen)
         {
             Journal = new LoggedBinaryReaderJournal(this);
         }

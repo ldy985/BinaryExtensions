@@ -14,7 +14,7 @@ namespace ldy985.BinaryWriterExtensions.Tests
 
         private readonly BinaryReader _testFileReader1;
 
-        private BinaryReader GetReaderFromFile([NotNull]string path)
+        private BinaryReader GetReaderFromFile(string path)
         {
             FileStream fileStream = File.OpenRead(path);
             return new BinaryReader(fileStream);

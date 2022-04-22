@@ -20,7 +20,7 @@ namespace ldy985.BinaryReaderExtensions.Tests
 
         protected BinaryReader TestFileReader1 { get; }
 
-        private BinaryReader GetReaderFromFile([NotNull]string path)
+        private BinaryReader GetReaderFromFile(string path)
         {
             FileStream fileStream = File.OpenRead(path);
             return new BinaryReader(fileStream);

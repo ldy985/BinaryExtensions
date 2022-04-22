@@ -14,9 +14,11 @@ namespace ldy985.BinaryReaderExtensions.Tests
 
         private readonly LoggedBinaryReader _testFileReader1;
 
-        private LoggedBinaryReader GetReaderFromFile([NotNull]string path)
+        private LoggedBinaryReader GetReaderFromFile(string path)
         {
+#pragma warning disable IDISP001
             FileStream fileStream = File.OpenRead(path);
+#pragma warning restore IDISP001
             return new LoggedBinaryReader(fileStream);
         }
 
