@@ -3,46 +3,45 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Xunit;
 
-namespace ldy985.BinaryWriterExtensions.Tests
+namespace ldy985.BinaryWriterExtensions.Tests;
+
+public class UnitTests : IDisposable
 {
-    public class UnitTests : IDisposable
+    public UnitTests()
     {
-        public UnitTests()
-        {
-            _testFileReader1 = GetReaderFromFile("../../../TestData/test1.dat");
-        }
+        _testFileReader1 = GetReaderFromFile("../../../TestData/test1.dat");
+    }
 
-        private readonly BinaryReader _testFileReader1;
+    private readonly BinaryReader _testFileReader1;
 
-        private BinaryReader GetReaderFromFile(string path)
-        {
-            FileStream fileStream = File.OpenRead(path);
-            return new BinaryReader(fileStream);
-        }
+    private BinaryReader GetReaderFromFile(string path)
+    {
+        FileStream fileStream = File.OpenRead(path);
+        return new BinaryReader(fileStream);
+    }
 
-        [Fact]
-        public void UInt16()
-        {
-            //TODO
-        }
+    [Fact]
+    public void UInt16()
+    {
+        //TODO
+    }
 
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposing)
-                _testFileReader1?.Dispose();
-        }
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposing)
+            _testFileReader1?.Dispose();
+    }
 
-        /// <inheritdoc />
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+    /// <inheritdoc />
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
 
-        /// <inheritdoc />
-        ~UnitTests()
-        {
-            Dispose(false);
-        }
+    /// <inheritdoc />
+    ~UnitTests()
+    {
+        Dispose(false);
     }
 }

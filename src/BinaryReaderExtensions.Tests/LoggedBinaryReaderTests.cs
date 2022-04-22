@@ -3,42 +3,41 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using ldy985.BinaryReaderExtensions.LoggedReader;
 
-namespace ldy985.BinaryReaderExtensions.Tests
+namespace ldy985.BinaryReaderExtensions.Tests;
+
+public class LoggedBinaryReaderTests : IDisposable
 {
-    public class LoggedBinaryReaderTests : IDisposable
+    public LoggedBinaryReaderTests()
     {
-        public LoggedBinaryReaderTests()
-        {
-            _testFileReader1 = GetReaderFromFile("../../../TestData/test1.dat");
-        }
+        _testFileReader1 = GetReaderFromFile("../../../TestData/test1.dat");
+    }
 
-        private readonly LoggedBinaryReader _testFileReader1;
+    private readonly LoggedBinaryReader _testFileReader1;
 
-        private LoggedBinaryReader GetReaderFromFile(string path)
-        {
+    private LoggedBinaryReader GetReaderFromFile(string path)
+    {
 #pragma warning disable IDISP001
-            FileStream fileStream = File.OpenRead(path);
+        FileStream fileStream = File.OpenRead(path);
 #pragma warning restore IDISP001
-            return new LoggedBinaryReader(fileStream);
-        }
+        return new LoggedBinaryReader(fileStream);
+    }
 
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposing)
-                _testFileReader1?.Dispose();
-        }
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposing)
+            _testFileReader1?.Dispose();
+    }
 
-        /// <inheritdoc />
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+    /// <inheritdoc />
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
 
-        /// <inheritdoc />
-        ~LoggedBinaryReaderTests()
-        {
-            Dispose(false);
-        }
+    /// <inheritdoc />
+    ~LoggedBinaryReaderTests()
+    {
+        Dispose(false);
     }
 }
