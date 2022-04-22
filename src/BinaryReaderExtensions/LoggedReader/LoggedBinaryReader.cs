@@ -33,7 +33,9 @@ public sealed class LoggedBinaryReader : BinaryReader
     /// Scope
     /// </summary>
     /// <exception cref="InvalidOperationException">Get. Ignore.</exception>
+#pragma warning disable IDISP012
     private IDisposable Scope => new LoggedBinaryReaderScope(Journal);
+#pragma warning restore IDISP012
 
     /// <summary>Begins a block of regions to group (see Remarks).</summary>
     /// <remarks>Each region grouping must be disposed of when done.</remarks>
