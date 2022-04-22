@@ -24,7 +24,7 @@ public class LoggedBinaryReaderTests : IDisposable
     protected virtual void Dispose(bool disposing)
     {
         if (disposing)
-            _testFileReader1?.Dispose();
+            _testFileReader1.Dispose();
     }
 
     /// <inheritdoc />
