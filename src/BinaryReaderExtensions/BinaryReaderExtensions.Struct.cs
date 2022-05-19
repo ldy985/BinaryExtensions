@@ -18,8 +18,9 @@ public static partial class BinaryReaderExtensions
     /// The structure will be read using <see cref="Marshal.SizeOf{T}()" /> and
     /// <see cref="Marshal.PtrToStructure{T}(System.IntPtr)" />.
     /// </remarks>
-    /// <exception cref="IOException"></exception>
-    /// <exception cref="ObjectDisposedException"></exception>
+    /// <exception cref="T:System.ArgumentException">The number of decoded characters to read is greater than <paramref name="count" />. This can happen if a Unicode decoder returns fallback characters or a surrogate pair.</exception>
+    /// <exception cref="T:System.IO.IOException">An I/O error occurred.</exception>
+    /// <exception cref="T:System.ObjectDisposedException">The stream is closed.</exception>
     [MustUseReturnValue]
     public static T ReadStruct<T>(this BinaryReader reader) where T : struct
     {

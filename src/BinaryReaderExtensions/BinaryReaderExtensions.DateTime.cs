@@ -9,9 +9,10 @@ public static partial class BinaryReaderExtensions
     /// <summary>ReadFileDateTime</summary>
     /// <param name="br"></param>
     /// <returns></returns>
-    /// <exception cref="EndOfStreamException"></exception>
-    /// <exception cref="ObjectDisposedException"></exception>
-    /// <exception cref="IOException"></exception>
+    /// <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="fileTime" /> is less than 0 or represents a time greater than <see cref="F:System.DateTime.MaxValue" />.</exception>
+    /// <exception cref="T:System.IO.EndOfStreamException">The end of the stream is reached.</exception>
+    /// <exception cref="T:System.IO.IOException">An I/O error occurred.</exception>
+    /// <exception cref="T:System.ObjectDisposedException">The stream is closed.</exception>
     [MustUseReturnValue]
     public static DateTime ReadFileDateTime(this BinaryReader br)
     {
@@ -25,6 +26,17 @@ public static partial class BinaryReaderExtensions
     /// <exception cref="EndOfStreamException"></exception>
     /// <exception cref="ObjectDisposedException"></exception>
     /// <exception cref="IOException"></exception>
+    /// <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="year" /> is less than 1 or greater than 9999.  
+    ///  -or-  
+    ///  <paramref name="month" /> is less than 1 or greater than 12.  
+    ///  -or-  
+    ///  <paramref name="day" /> is less than 1 or greater than the number of days in <paramref name="month" />.  
+    ///  -or-  
+    ///  <paramref name="hour" /> is less than 0 or greater than 23.  
+    ///  -or-  
+    ///  <paramref name="minute" /> is less than 0 or greater than 59.  
+    ///  -or-  
+    ///  <paramref name="second" /> is less than 0 or greater than 59.</exception>
     [MustUseReturnValue]
     public static DateTime ReadMRUDateTime(this BinaryReader br)
     {
@@ -65,6 +77,9 @@ public static partial class BinaryReaderExtensions
     /// <exception cref="EndOfStreamException"></exception>
     /// <exception cref="ObjectDisposedException"></exception>
     /// <exception cref="IOException"></exception>
+    /// <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="seconds" /> is less than  -62,135,596,800.  
+    ///  -or-  
+    ///  <paramref name="seconds" /> is greater than 253,402,300,799.</exception>
     [MustUseReturnValue]
     public static DateTime ReadUnixDatetime(this BinaryReader br)
     {

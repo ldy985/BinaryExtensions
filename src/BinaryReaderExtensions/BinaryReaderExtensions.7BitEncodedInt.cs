@@ -9,6 +9,8 @@ public static partial class BinaryReaderExtensions
     /// <summary>Reads 7-bit encoded int.</summary>
     /// <exception cref="FormatException">Format_Bad7BitInt32</exception>
     /// <exception cref="EndOfStreamException">The end of the stream is reached.</exception>
+    /// <exception cref="T:System.IO.IOException">An I/O error occurred.</exception>
+    /// <exception cref="T:System.ObjectDisposedException">The stream is closed.</exception>
     [MustUseReturnValue]
     public static int Read7BitEncodedInt(this BinaryReader br)
     {

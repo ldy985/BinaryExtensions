@@ -12,6 +12,10 @@ public static partial class BinaryReaderExtensions
     /// <exception cref="NotSupportedException"></exception>
     /// <exception cref="EndOfStreamException">The end of the stream is reached.</exception>
     /// <exception cref="IOException">An I/O error occurs.</exception>
+    /// <exception cref="T:System.ObjectDisposedException">The stream is closed.</exception>
+    /// <exception cref="T:System.ArgumentException">The current type is not an enumeration.  
+    ///  -or-  
+    ///  The enumeration type is not valid, because it contains more than one instance field.</exception>
     [MustUseReturnValue]
     public static T ReadEnum<T>(this BinaryReader br, bool failOnInvalidValue = false) where T : struct, Enum
     {

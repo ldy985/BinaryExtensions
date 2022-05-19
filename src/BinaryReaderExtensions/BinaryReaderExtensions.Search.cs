@@ -28,6 +28,7 @@ public static partial class BinaryReaderExtensions
     /// <summary>Finds the first index of the specified needle. Returns -1 if not found.</summary>
     /// <exception cref="IOException"></exception>
     /// <exception cref="InvalidOperationException"></exception>
+    /// <exception cref="T:System.ObjectDisposedException">Condition.</exception>
     [MustUseReturnValue]
     public static long IndexOf(this BinaryReader reader, byte needle)
     {
@@ -45,6 +46,13 @@ public static partial class BinaryReaderExtensions
     /// <summary>Finds all indexes of the specified needle. It returns nothing if there is no match.</summary>
     /// <exception cref="IOException">An I/O error occurs.</exception>
     /// <exception cref="ObjectDisposedException"></exception>
+    /// <exception cref="T:System.OverflowException">The array is multidimensional and contains more than <see cref="F:System.Int32.MaxValue" /> elements.</exception>
+    /// <exception cref="T:System.ArgumentException">The buffer length minus <paramref name="index" /> is less than <paramref name="count" />.  
+    ///  -or-  
+    ///  The number of decoded characters to read is greater than <paramref name="count" />. This can happen if a Unicode decoder returns fallback characters or a surrogate pair.</exception>
+    /// <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index" /> or <paramref name="count" /> is negative.</exception>
+    /// <exception cref="T:System.ArgumentNullException"><paramref name="first" /> or <paramref name="second" /> is <see langword="null" />.</exception>
+    /// <exception cref="T:System.NotSupportedException">The stream does not support seeking.</exception>
     [MustUseReturnValue]
     public static IEnumerable<long> IndexOfAny(this BinaryReader reader, byte[] needle)
     {
@@ -82,6 +90,7 @@ public static partial class BinaryReaderExtensions
     /// <summary>Finds all indexes of the specified needle. It returns nothing if there is no match.</summary>
     /// <exception cref="IOException">An I/O error occurs.</exception>
     /// <exception cref="ObjectDisposedException"></exception>
+    /// <exception cref="T:System.NotSupportedException">The stream does not support seeking.</exception>
     [MustUseReturnValue]
     public static IEnumerable<long> IndexOfAny(this BinaryReader reader, byte needle)
     {
@@ -112,6 +121,7 @@ public static partial class BinaryReaderExtensions
     /// <summary>Read from the reader until it reaches the specified byte</summary>
     /// <exception cref="IOException">An I/O error occurs.</exception>
     /// <exception cref="ObjectDisposedException"></exception>
+    /// <exception cref="T:System.NotSupportedException">The stream does not support seeking.</exception>
     [MustUseReturnValue]
     public static IEnumerable<byte> ReadUntil(this BinaryReader reader, byte needle)
     {

@@ -14,6 +14,12 @@ public static partial class BinaryReaderExtensions
     /// <returns>The string.</returns>
     /// <exception cref="System.ObjectDisposedException"></exception>
     /// <exception cref="IOException"></exception>
+    /// <exception cref="T:System.ArgumentException">The number of decoded characters to read is greater than <paramref name="count" />. This can happen if a Unicode decoder returns fallback characters or a surrogate pair.</exception>
+    /// <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="count" /> is negative.</exception>
+    /// <exception cref="T:System.ArgumentNullException"><paramref name="bytes" /> is <see langword="null" />.</exception>
+    /// <exception cref="T:System.Text.DecoderFallbackException">A fallback occurred (for more information, see Character Encoding in .NET)
+    ///  -and-
+    ///  <see cref="P:System.Text.Encoding.DecoderFallback" /> is set to <see cref="T:System.Text.DecoderExceptionFallback" />.</exception>
     [MustUseReturnValue]
     public static string ReadFixedString(this BinaryReader br, int length, Encoding encoding)
     {

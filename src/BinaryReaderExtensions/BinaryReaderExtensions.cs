@@ -44,7 +44,9 @@ public static partial class BinaryReaderExtensions
     /// <param name="reader">The <see cref="BinaryReader" /> to read from.</param>
     /// <param name="alignment">Number of bytes to align by.</param>
     /// <remarks>The underlying stream position is aligned forward even if already aligned.</remarks>
-    /// <exception cref="IOException">An I/O error occurs.</exception>
+    /// <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+    /// <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
+    /// <exception cref="T:System.NotSupportedException">The stream does not support seeking.</exception>
     public static long Align(this BinaryReader reader, int alignment)
     {
         long position = reader.GetPosition();
@@ -68,7 +70,9 @@ public static partial class BinaryReaderExtensions
     /// <summary>Sets the position of the underlying stream.</summary>
     /// <param name="reader">The <see cref="BinaryReader" /> to read from.</param>
     /// <param name="position">Position to set the underlying stream to.</param>
-    /// <exception cref="IOException">An I/O error occurs.</exception>
+    /// <exception cref="T:System.NotSupportedException">The stream does not support seeking.</exception>
+    /// <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+    /// <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void SetPosition(this BinaryReader reader, long position)
     {
@@ -78,8 +82,9 @@ public static partial class BinaryReaderExtensions
     /// <summary>Move underlying stream position backward.</summary>
     /// <param name="reader">The <see cref="BinaryReader" /> to read from.</param>
     /// <param name="count">Number of bytes to roll.</param>
-    /// <exception cref="IOException">An I/O error occurs.</exception>
-    /// <exception cref="ObjectDisposedException"></exception>
+    /// <exception cref="T:System.NotSupportedException">The stream does not support seeking.</exception>
+    /// <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
+    /// <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void SkipBackwards(this BinaryReader reader, long count)
     {
@@ -89,8 +94,9 @@ public static partial class BinaryReaderExtensions
     /// <summary>Move underlying stream position forward.</summary>
     /// <param name="reader">The <see cref="BinaryReader" /> to read from.</param>
     /// <param name="count">Number of bytes to skip.</param>
-    /// <exception cref="IOException">An I/O error occurs.</exception>
-    /// <exception cref="ObjectDisposedException"></exception>
+    /// <exception cref="T:System.NotSupportedException">The stream does not support seeking.</exception>
+    /// <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
+    /// <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void SkipForwards(this BinaryReader reader, long count)
     {
@@ -101,7 +107,9 @@ public static partial class BinaryReaderExtensions
     /// <param name="reader"></param>
     /// <param name="pos"></param>
     /// <returns></returns>
-    /// <exception cref="IOException"></exception>
+    /// <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
+    /// <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+    /// <exception cref="T:System.NotSupportedException">The stream does not support seeking.</exception>
     public static bool TrySetPosition(this BinaryReader reader, long pos)
     {
         if (pos < 0)

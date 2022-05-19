@@ -14,6 +14,9 @@ public static partial class BinaryReaderExtensions
     /// <returns>The object read.</returns>
     /// <remarks>This method will save underlying stream position and restore it after reading the object.</remarks>
     /// <exception cref="IOException">An I/O error occurs.</exception>
+    /// <exception cref="T:System.NotSupportedException">The stream does not support seeking.</exception>
+    /// <exception cref="T:System.Exception">A delegate callback throws an exception.</exception>
+    /// <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
     [Pure]
     public static T Peek<T>(this BinaryReader reader, Func<BinaryReader, T> func)
     {
@@ -28,8 +31,11 @@ public static partial class BinaryReaderExtensions
     /// <summary>PeekData</summary>
     /// <param name="reader"></param>
     /// <param name="count"></param>
-    /// <exception cref="IOException"></exception>
-    /// <exception cref="ObjectDisposedException"></exception>
+    /// <exception cref="T:System.ArgumentException">The number of decoded characters to read is greater than <paramref name="count" />. This can happen if a Unicode decoder returns fallback characters or a surrogate pair.</exception>
+    /// <exception cref="T:System.NotSupportedException">The stream does not support seeking.</exception>
+    /// <exception cref="T:System.IO.IOException">An I/O error occurred.</exception>
+    /// <exception cref="T:System.ObjectDisposedException">The stream is closed.</exception>
+    /// <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="count" /> is negative.</exception>
     [Pure]
     public static byte[] PeekData(this BinaryReader reader, int count)
     {
@@ -57,6 +63,8 @@ public static partial class BinaryReaderExtensions
         return data;
     }
 
+    /// <exception cref="T:System.IO.IOException">An I/O error occurred.</exception>
+    /// <exception cref="T:System.ObjectDisposedException">The stream is closed.</exception>
     public static int ReadBytes(this BinaryReader reader, Span<byte> buffer)
     {
         int numRead = 0;
