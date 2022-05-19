@@ -64,15 +64,6 @@
         <PackageReference Include="Lindhart.Analyser.MissingAwaitWarning" Version="*" PrivateAssets="all"/>
     </ItemGroup>
 
-
-    <ItemGroup>
-        <PackageReference Include="Nerdbank.GitVersioning"
-                          Version="*"
-                          PrivateAssets="all"
-                          IncludeAssets="runtime; build; native; contentfiles; analyzers"
-                          Condition="!Exists('packages.config')"/>
-    </ItemGroup>
-
     <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
